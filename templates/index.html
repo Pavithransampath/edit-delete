@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+    
+        th,
+        td {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 30px;
+            padding-right: 40px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <input type="text" placeholder="enter your name" name="name">
+        <input type="number" placeholder="enter your age" name="age">
+        <input type="number" placeholder="enter your rollno" name="rollno">
+        <input type="number" placeholder="enter your mark1" name="tamil">
+        <input type="number" placeholder="enter your mark2" name="english">
+        <input type="number" placeholder="enter your mark3" name="maths">
+        <input type="number" placeholder="enter your mark4" name="science">
+        <input type="number" placeholder="enter your mark5" name="social">
+        <input type="submit">
+
+    </form>
+
+<table>
+    <tr>
+        <th>serialno</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Roll_NO</th>
+        <th colspan="5">Marks</th>
+        <th colspan="2">Actions</th>
+    </tr>
+{%for i in list1%}
+    <tr>
+    <td>{{loop.index}}</td>
+    <td>{{i.Name}}</td>
+    <td>{{i.Age}}</td>
+    <td>{{i.Roll_NO}}</td>
+    {%for j in i.Marks%}
+    <td>{{j}}</td>
+    {%endfor%}
+    
+    <td> <a href="{{url_for('home1',delete=loop.index)}}">Delete</a></td>
+    <td> <a href="{{url_for('home2',index=loop.index)}}">Edit</a></td>
+    </tr>
+{%endfor%}
+
+
+
+
+</table>
+
+
+
+</body>
+</html>
